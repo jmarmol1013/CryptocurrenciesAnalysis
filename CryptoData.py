@@ -43,16 +43,16 @@ def write_csv_file(data):
     df['Date'] = pd.Timestamp('now').date()
     df = df.drop(['tags','platform','self_reported_circulating_supply','self_reported_market_cap','tvl_ratio','quote.USD.tvl','platform.id','platform.slug','platform.token_address','quote.USD.fully_diluted_market_cap','platform.name','platform.symbol'],axis=1)
     df = df.rename(columns={'num_market_pairs':'Market Pairs','date_added':'Date Added','max_supply':'Max Supply','total_supply':'Total Supply','infinite_supply':'Infinity Supply','cmc_rank':'CMC Rank','last_updated':'Last Updated','quote.USD.price':'Price USD','quote.USD.volume_24h':'Volume 24H(USD)','quote.USD.volume_change_24h':'Volumn change 24H(USD)','quote.USD.percent_change_1h':'Price change % 1H','quote.USD.percent_change_24h':'Price change % 24H','quote.USD.percent_change_7d':'Price change % 7D','quote.USD.percent_change_30d':'Price change % 30D','quote.USD.percent_change_60d':'Price change % 60D','quote.USD.percent_change_90d':'Price change % 90D','quote.USD.market_cap':'Market capitalization USD','quote.USD.market_cap_dominance':'Market capitalization dominance %','quote.USD.last_updated':'Last market updated'})
-    df.to_csv('CriptoData.csv',header='column_names')
+    df.to_csv('CryptoData.csv',header='column_names')
     send_data_email()
 
 def send_data_email():
     sender_email = ADDRESS
     receiver_email = ADDRESS
-    subject = 'Cripto Data Analysis CSV'
-    body = 'CSV attachment of the Criptocurrencies Data information.'
+    subject = 'Crypto Data Analysis CSV'
+    body = 'CSV attachment of the Cryptocurrencies Data information.'
     
-    attachment_path = 'CriptoData.csv'
+    attachment_path = 'CryptoData.csv'
     
     message = MIMEMultipart()
     message['From'] = sender_email
